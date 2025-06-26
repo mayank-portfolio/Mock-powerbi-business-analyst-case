@@ -1,43 +1,59 @@
 # Mock Power BI Business Analyst Case – Auto Notification System
 
-This project is a mock business analyst case created to demonstrate data storytelling, requirement analysis, and dashboard design using Power BI. It supports an internal transition to a Business Analyst role from a customer service background at American Express.
-
-## 📊 Dashboard Overview
-
-The dashboard analyzes:
-- Impact of auto-reminder notifications on CSAT scores
-- Benefit usage vs expiry by customer tier (Gold, Platinum, Centurion)
-- Monthly trend of benefit expiry events
-
-### Key Metrics
-- **Total Customers Tracked**: 79
-- **Reminders Sent**: 50
-- **Average CSAT Before Notification**: 68.99
-- **Average CSAT After Notification**: 83.96
-- **Platinum Benefit Usage**: 43.97% used, 56.03% expired
-
-## 📁 Files Included
-
-- `AutoNotificationDashboard.pbix`: Main Power BI dashboard file
-- `dashboard-preview.png`: Screenshot of the dashboard *(optional but highly recommended)*
-- `PowerBI_EnhancementGuide.pdf`: Visual/UX improvement recommendations
-- Link to supporting docs: [FRD/BRD Repository](https://github.com/mayank-portfolio/analyst-portfolio)
-
-## 🎯 Use Case Summary
-
-This solution simulates a project to:
-- Send timely expiry reminders to reduce unused benefits
-- Improve customer satisfaction without retention policy violations
-- Identify gaps in benefit usage across customer tiers
-
-## 🧠 Skills Demonstrated
-
-- Power BI (cards, filters, DAX measures, drilldowns)
-- Requirement analysis and flow documentation (see FRD/BRD repo)
-- Data visualization best practices
-- Version control and GitHub documentation
+This project simulates a business case aligned with internal BA responsibilities at American Express. It demonstrates dashboarding, DAX, and data storytelling, using a customer-centric use case for benefit expiry notifications.
 
 ---
 
-> 🔗 **Explore the complete case** with BRD and FRD:  
-[➡️ Analyst Portfolio Repo](https://github.com/mayank-portfolio/analyst-portfolio)
+![Dashboard Preview](dashboard-preview.PNG)
+
+---
+
+## 📊 Dashboard Summary
+
+- 📌 **Use Case**: Improve benefit utilization by sending automated expiry reminders
+- 📈 **Objective**: Increase CSAT while ensuring compliance with retention restrictions
+- 🎯 **Impact**: CSAT rose from 69.01 to 84.27 after notifications
+
+---
+
+## 🧮 DAX Measures Used
+
+- `Total Customers = DISTINCTCOUNT(Table1[CustomerID])`
+- `TotalRemindersSent = CALCULATE(COUNTROWS(Table1), Table1[ReminderSent] = "Yes")`
+- `CSAT_Before Avg = AVERAGE(Table1[CSAT_Before])`
+- `CSAT_After Avg = AVERAGE(Table1[CSAT_After])`
+- `Benefit Used % = DIVIDE([BenefitUsed], [BenefitUsed] + [BenefitsExpired], 0)`
+
+---
+
+## 📈 Visualizations Used
+
+- KPI Cards: CSAT before/after, customer/reminder count
+- Stacked Bar: Benefit used vs expired by Customer Tier
+- Line Chart: Monthly trend of expired vs used benefits
+- Slicer: Customer Tier filter panel
+
+---
+
+## 🧱 Data Model
+
+- Single table used: `Table1`
+- Contains columns for: CustomerID, Tier, ReminderSent, BenefitUsed, CSAT scores, Dates
+- All measures created in a dedicated Measure Table for clarity
+- No external data connections or complex joins
+
+---
+
+## 📎 Related Documents
+
+View supporting requirement documents (FRD, BRD) here:  
+🔗 [Analyst Portfolio Repository](https://github.com/mayank-portfolio/analyst-portfolio)
+
+---
+
+## 🧠 Skills Demonstrated
+
+- Power BI dashboard development
+- DAX calculations and aggregations
+- Functional thinking with stakeholder perspective
+- GitHub versioning and documentation
